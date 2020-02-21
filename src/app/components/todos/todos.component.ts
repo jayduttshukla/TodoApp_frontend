@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from './todo';
 import { TodosService } from '../../services/todos.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-todos',
@@ -9,25 +11,31 @@ import { TodosService } from '../../services/todos.service';
 })
 export class TodosComponent implements OnInit {
 
-  constructor(private todosService : TodosService) { }
+  constructor(private todosService : TodosService,private router: Router) {
+   
+  }
   
   todoValue: string;
   list: Todo[];
-
+  loggedIn: boolean = false;
+  tokenPayload: string;
+  userName: string;
   ngOnInit() {
     this.todoValue = ""
+    const jwtHelper = new JwtHelperService();
+    this.tokenPayload = jwtHelper.decodeToken(localStorage.getItem("token"));
+    this.userName =  (((jwtHelper.decodeToken(localStorage.getItem("token"))).name).split(" "))[0];
     this.getTodos();
   }
 
   getTodos() {
     this.todosService.getTodos().subscribe(async res => {
-     if (res) {
-       console.log('response :',res)
-       this.list = await res;
-       console.log(this.list)
-     } else {
-       console.log("Todos Error");
-     }  
+        if (res) {
+          this.list = await res;
+          console.log(this.list)
+        } else {
+          console.log("Todos Error");
+        } 
    })
  }
 
@@ -35,7 +43,8 @@ export class TodosComponent implements OnInit {
    if(this.todoValue !== "" ){
      const newItem: Todo = {
        todoValue : this.todoValue,
-       isDone: false
+       isDone: false,
+       user_id: this.tokenPayload
      };
      console.log('newItem ',newItem)
      this.todosService.AddTodo(newItem).subscribe(() =>  this.getTodos());
@@ -49,6 +58,11 @@ export class TodosComponent implements OnInit {
 
  changeTodoStatus(id, status){
    this.todosService.todoStatusChange(id,status.target.checked).subscribe(() => this.getTodos());
+  }
+
+  onLogout(){
+    this.router.navigate(['/']);
+    localStorage.clear();
   }
 
 }

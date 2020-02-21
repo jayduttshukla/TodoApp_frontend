@@ -1,139 +1,74 @@
-
-.logo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .input-text {
-    display: inline;
-    margin: 0;
-    border: none;
-    border-radius: 0.4rem;
-    padding: 10px;
-  }
-  
-  .list ul li button {
-    position: absolute;
-    right: 0%;
-    background: #f34541;
-    color: #fff !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 10px;
-    border-radius: 0.4rem;
-    display: inline-block;
-    border: none;
-  }
-  
-  .add-btn {
-    color: #fff !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: #7313cb;
-    margin: 20px;
-    padding: 10px;
-    border-radius: 0.4rem;
-    display: inline-block;
-    border: none;
-  }
-  
-  .app-title {
-    text-align: center;
-    color: #c1c1c1;
-    font-size: 70px;
-  }
-  ul {
-    /* remove default padding and margin from ul*/
-    margin: 0px;
-    padding: 0px;
-  }
-  .list ul li {
-    display: block;
-    width: 100%;
-    text-decoration: none;
-    color: #000000;
-    background-color: #ffffff;
-    line-height: 30px;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-bottom-color: #cccccc;
-    padding: 10px;
-    position: relative;
-  }
-  
-  .container {
-    color: #fff;
-    max-width: 500px;
-    margin: auto;
-  }
-  
-/* The checkbox-container */
-.checkbox-container {
-  display: block;
+.card.custom {
+  margin: 6px;
+  width: 100%;
+  min-width: 210px;
+  background: transparent;
+  border: 1px solid #fff;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
-/* Hide the browser's default checkbox */
-.checkbox-container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+.heading {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 30px 0px;
+  margin-left: -10px;
 }
 
-/* Create a custom checkbox */
-.checkmark {
+.heading h3 {
+  color: #fff;
+}
+
+.add-todo-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-left: -10px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin: 0px;
+  width: 80%;
+}
+
+.form-group input {
+  height: 50px;
+}
+
+button.btn.btn-primary.add-todo {
+  width: calc(20% - 10px);
+  height: 50px;
+}
+
+
+span.material-control-description {
+  color: #fff;
+  font-size: 21px;
+  margin-left: 12px;
+}
+
+a.remove-todo {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
+  font-size: 45px;
+  color: #fff;
+  /* background: #000; */
+  padding: 0;
+  right: 8px;
+  top: -4px;
+  cursor: pointer;
+
+  transition: all 0.1s ease-in-out;
+}
+a.remove-todo:hover{
+transform: scale(1.1,1.1);
+}
+.custom-control.material-checkbox .material-control-indicator {
   width: 25px;
-  background-color: #eee;
+  height: 25px;
 }
-
-/* On mouse-over, add a grey background color */
-.checkbox-container:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-/* When the checkbox is checked, add a blue background */
-.checkbox-container input:checked ~ .checkmark {
-  background-color: #2196F3;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Show the checkmark when checked */
-.checkbox-container input:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Style the checkmark/indicator */
-.checkbox-container .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+.custom-control.material-checkbox .material-control-input:checked ~ .material-control-indicator
+{
+  width: 15px;
 }

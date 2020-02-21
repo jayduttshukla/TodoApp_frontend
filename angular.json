@@ -24,6 +24,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
+              "src/assets/custom-checkbox.scss",
               "src/styles.css"
             ],
             "scripts": []

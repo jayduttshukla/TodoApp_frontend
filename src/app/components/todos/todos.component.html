@@ -1,15 +1,47 @@
-<h1 style="text-align: center;" class="app-title"> Todo List</h1>
 <div class="container">
-  <br>
-  <input type="text" class="input-text" placeholder="Type a todo" (keyup.enter)="addItem()" [(ngModel)]="todoValue">
-  <button class="add-btn" (click)="addItem()" [disabled]="!todoValue.length > 0">Add ToDo</button>
-  <div class="list">
-    <ul>
-      <li *ngFor="let item of list">
-        <input type="checkbox" name="isDone" [(ngModel)]="item.isDone"  (change)="changeTodoStatus(item._id,$event)">
-        {{item.todoValue}}
-        <button class="btn" (click)="deleteItem(item._id)">Delete</button>
-      </li>
-    </ul>
+
+  <div class="heading">
+    <h3 style="text-align: center;" class="app-title"> Hello {{userName}}!</h3>
+    <p (click)="onLogout()"
+      style="font-size: 16px;color: #fff; text-align: center; text-decoration: underline; cursor: pointer;">Logout</p>
   </div>
+
+
+  <div class="add-todo-container">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Type a todo" (keyup.enter)="addItem()" [(ngModel)]="todoValue">
+	</div>
+	<button class="btn btn-primary add-todo" (click)="addItem()" [disabled]="!todoValue.length > 0">Add</button>
+
+    <!-- <div class="loader-container"><img src="../../../assets/spinner.gif" style="height: 75px;" alt=""></div> -->
+    <!-- <div class="list">
+		<ul>
+		<li *ngFor="let item of list">
+			<input type="checkbox" name="isDone" [(ngModel)]="item.isDone" (change)="changeTodoStatus(item._id,$event)">
+			{{item.todoValue}}
+			<button class="btn" (click)="deleteItem(item._id)">Delete</button>
+		</li>
+		</ul>
+	</div> -->
+  </div>
+
+
+  <div class="row d-flex flex-wrap">
+    <div class="card custom" *ngFor="let item of list">
+      <div class="card-body">
+
+        <!-- <h5 class="card-title">Special title treatment</h5> -->
+        <label class="custom-control material-checkbox">
+          <input type="checkbox" class="material-control-input" type="checkbox" name="isDone" [(ngModel)]="item.isDone"
+            (change)="changeTodoStatus(item._id,$event)">
+          <span class="material-control-indicator"></span>
+          <span class="material-control-description">{{item.todoValue}}</span>
+        </label>
+        <!-- <input type="checkbox" name="isDone" [(ngModel)]="item.isDone" (change)="changeTodoStatus(item._id,$event)">
+			<p class="card-text"> {{item.todoValue}}</p> -->
+        <a class="remove-todo" (click)="deleteItem(item._id)"><span aria-hidden="true">&times;</span></a>
+      </div>
+    </div>
+  </div>
+
 </div>

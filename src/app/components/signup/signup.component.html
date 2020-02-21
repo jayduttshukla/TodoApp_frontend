@@ -1,0 +1,24 @@
+<div class="container custom-form">
+	
+	
+    <div class="form-wrapper">
+      <h3>Welcome!</h3>
+      <form [formGroup]="registerForm" (submit)="onSubmitSignUp($event)">
+          <h5 class="form-title mb-3">Register</h5>
+      <div class="form-group">
+        <input type="text" formControlName="name" required class="form-control" id="name" placeholder="Enter your Name">
+      </div>
+      <div class="form-group">
+        <input type="email" formControlName="email" required class="form-control" id="emailAddress" placeholder="Enter your email">
+      </div>
+      <div class="form-group mb-4">
+        <input type="password" formControlName="password" required class="form-control" id="password" placeholder="Enter password">
+      </div>
+      <p style="color: #5e0101db;" *ngIf="error">{{ error }}</p>
+      <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Sign Up</button>
+    </form>
+  <div class="dropdown-divider"></div>
+	<a class="lable-form-bottom" routerLink="/">Already have an Account? Login</a>
+      <!--<a class="dropdown-item" href="#">Forgot password?</a> -->
+  </div>
+</div>
