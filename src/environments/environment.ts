@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
- // api: 'https://todo-app-api1.herokuapp.com/api/'
- api: 'http://localhost:3000/api/'
+ api: 'https://todo-app-api1.herokuapp.com/api/'
+ // api: 'http://localhost:3000/api/'
 };
 
 /*
