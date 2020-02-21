@@ -26,7 +26,6 @@ export class AuthService {
   public isAuthenticated(): Boolean{
     const jwtHelper = new JwtHelperService();
     const token = localStorage.getItem('token');
-    console.log('tokenExp ', jwtHelper.isTokenExpired(token))
     return !jwtHelper.isTokenExpired(token);
   }
   register(credentials): Observable<any> {

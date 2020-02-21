@@ -32,9 +32,6 @@ export class TodosComponent implements OnInit {
     this.todosService.getTodos().subscribe(async res => {
         if (res) {
           this.list = await res;
-          console.log(this.list)
-        } else {
-          console.log("Todos Error");
         } 
    })
  }
@@ -46,7 +43,6 @@ export class TodosComponent implements OnInit {
        isDone: false,
        user_id: this.tokenPayload
      };
-     console.log('newItem ',newItem)
      this.todosService.AddTodo(newItem).subscribe(() =>  this.getTodos());
    }
    this.todoValue = ""

@@ -28,13 +28,11 @@ export class TodosService {
 
   getTodos(): Observable<any> {
     let id = (this.jwtHelper.decodeToken(localStorage.getItem("token")))._id;
-    console.log('id: ',id)
     let apiURL = this.endPoint + 'todos/' + id;
     return this.http.get(apiURL, this.requestOptions).pipe( 
     );
   }
   AddTodo(todoData): Observable<any> {
-    console.log('cu user:', todoData)
     let apiURL = this.endPoint + 'todos';
     return this.http.post(apiURL,todoData, this.requestOptions);
   }

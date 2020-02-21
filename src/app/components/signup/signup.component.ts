@@ -27,7 +27,6 @@ export class SignupComponent implements OnInit {
   public onSubmitSignUp(e) {
     e.preventDefault();
     if(this.registerForm.valid){
-      console.log('form Val ',this.registerForm.value)
       this.authService.register(this.registerForm.value).subscribe( res => {
         localStorage.setItem('token', res.token);
         this.router.navigate(['/todo']);
