@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/todo']);
         this.ngxService.stop();
       },
-      err => {this.error = err.error; console.log('error :', err) }); 
+      err => {this.error = err.error; this.ngxService.stop(); }); 
     }
   }
 
