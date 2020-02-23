@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { catchError, map, tap } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Injectable({
   providedIn: 'root'
@@ -22,29 +23,31 @@ export class TodosService {
     responseType: 'json'
   };
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient,private ngxService: NgxUiLoaderService) { 
     
   }
 
   getTodos(): Observable<any> {
+    this.ngxService.start();
     let id = (this.jwtHelper.decodeToken(localStorage.getItem("token")))._id;
     let apiURL = this.endPoint + 'todos/' + id;
     return this.http.get(apiURL, this.requestOptions).pipe( 
     );
   }
   AddTodo(todoData): Observable<any> {
+    this.ngxService.start();
     let apiURL = this.endPoint + 'todos';
     return this.http.post(apiURL,todoData, this.requestOptions);
   }
 
   removeTodo(todoId): Observable<any> {
-    
+    this.ngxService.start();
     let apiURL = this.endPoint + 'todos/' + todoId;
     return this.http.delete(apiURL,this.requestOptions);
   }
 
   todoStatusChange(id, status): Observable<any> {
-    
+    this.ngxService.start();
     let apiURL = this.endPoint + 'todos/' + id;
     let body = {
       isDone : status

@@ -1,10 +1,8 @@
 
-body
-{
-    background:linear-gradient(-135deg,#c850c0,#4158d0) ;
+body{
     background-size: 100%;
-    /* background-repeat: no-repeat; */
-   
+   background:url("../src/assets/img/bg.jpg") ;
+   background-size: cover;
 }
 button[disabled]
 {

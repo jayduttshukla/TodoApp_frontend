@@ -3,6 +3,7 @@ import { Todo } from './todo';
 import { TodosService } from '../../services/todos.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-todos',
@@ -11,7 +12,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class TodosComponent implements OnInit {
 
-  constructor(private todosService : TodosService,private router: Router) {
+  constructor(private todosService : TodosService,private router: Router,private ngxService: NgxUiLoaderService) {
    
   }
   
@@ -32,6 +33,7 @@ export class TodosComponent implements OnInit {
     this.todosService.getTodos().subscribe(async res => {
         if (res) {
           this.list = await res;
+          this.ngxService.stop();
         } 
    })
  }

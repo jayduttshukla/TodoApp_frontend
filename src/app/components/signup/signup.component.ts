@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,7 @@ export class SignupComponent implements OnInit {
   
   constructor(private fb: FormBuilder, 
     private authService: AuthService,
-    private router: Router) { 
+    private router: Router,private ngxService: NgxUiLoaderService) { 
   
     this.registerForm = this.fb.group({
       name: ['', [Validators.required,Validators.minLength(5)]],
@@ -30,6 +31,7 @@ export class SignupComponent implements OnInit {
       this.authService.register(this.registerForm.value).subscribe( res => {
         localStorage.setItem('token', res.token);
         this.router.navigate(['/todo']);
+        this.ngxService.stop();
       },
       err => this.error = err.error);
     }

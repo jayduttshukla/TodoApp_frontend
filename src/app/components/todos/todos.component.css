@@ -1,10 +1,12 @@
 .card.custom {
-  margin: 6px;
-  width: 100%;
+  margin: 7px;
+  /* width: 100%; */
   min-width: 210px;
-  background: transparent;
-  border: 1px solid #fff;
+  background: rgba(255, 255, 255, 0.2);
+  /* border: 1px solid #fff; */
+  border-radius: 10px;
   position: relative;
+  height: auto;
 }
 
 .heading {
@@ -71,4 +73,8 @@ transform: scale(1.1,1.1);
 .custom-control.material-checkbox .material-control-input:checked ~ .material-control-indicator
 {
   width: 15px;
+}
+.card.custom .card-body{
+  min-height: 1px;
+  padding: 2.75rem 9px;
 }

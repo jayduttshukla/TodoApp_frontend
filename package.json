@@ -23,6 +23,7 @@
     "angular-local-storage": "^0.7.1",
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
+    "ngx-ui-loader": "^7.2.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
