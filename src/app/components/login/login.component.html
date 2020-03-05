@@ -10,7 +10,10 @@
       <div class="form-group mb-4">
         <input type="password" formControlName="password" class="form-control" id="password" placeholder="Enter password">
       </div>
-      <p style="color: #5e0101db;" *ngIf="error">{{ error }}</p>
+      <div *ngIf="email.invalid && !email.pristine">
+        <p *ngIf="email.errors" style="color: red;padding: 1px 2px; font-size: 10px; background: #fff;"> Invalid Email</p>
+      </div>
+      <p style="color: red;padding: 1px 2px; font-size: 10px; background: #fff;" *ngIf="error">{{ error }}</p>
       <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Sign in</button>
     </form>
      <div class="dropdown-divider"></div>

@@ -18,14 +18,15 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,private ngxService: NgxUiLoaderService) { 
       this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)]],
+      email: ['', [Validators.required, Validators.pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,10}$/)]],
       password: ['', [Validators.required, Validators.minLength(5)]]
      });
     }
 
   ngOnInit() {
   }
-
+  get email() { return this.loginForm.get('email'); }
+  get password() { return this.loginForm.get('password'); }
  public onSubmitLogin(e){
     e.preventDefault();
     if(this.loginForm.valid){

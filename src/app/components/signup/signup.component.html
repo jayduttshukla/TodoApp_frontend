@@ -14,7 +14,19 @@
       <div class="form-group mb-4">
         <input type="password" formControlName="password" required class="form-control" id="password" placeholder="Enter password">
       </div>
-      <p style="color: #5e0101db;" *ngIf="error">{{ error }}</p>
+
+      <div *ngIf="name.invalid && !name.pristine">
+        <p *ngIf="name.errors.minlength" style="color: red;padding: 1px 2px; font-size: 10px; background: #fff;"> Name should be at least 5 characters.</p>
+      </div>
+      <div *ngIf="email.invalid && !email.pristine">
+        <p *ngIf="email.errors" style="color: red;padding: 1px 2px; font-size: 10px; background: #fff;"> Invalid Email</p>
+      </div>
+
+      <div *ngIf="password.invalid && !password.pristine">
+        <p *ngIf="password.errors.minlength" style="color: red;padding: 1px 2px; font-size: 10px; background: #fff;"> Password should be at least 5 characters.</p>
+      </div>
+      <p style="color: red;padding: 1px 2px; font-size: 10px; background: #fff;" *ngIf="error">{{ error }}</p>
+
       <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Sign Up</button>
     </form>
   <div class="dropdown-divider"></div>
