@@ -38,7 +38,7 @@ export class SignupComponent implements OnInit {
         this.router.navigate(['/todo']);
         this.ngxService.stop();
       },
-      err => { this.error = err.error.text; this.ngxService.stop(); console.log('abc : ', err.error)} );
+      err => { this.error = err.error.text; this.ngxService.stop();} );
     }
   }
 }
