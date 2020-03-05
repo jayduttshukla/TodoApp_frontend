@@ -1,6 +1,11 @@
-# MyApp
+# Todo App developed by Jaydutt Shukla as a practice of MEAN stack 
 
+Live app : [Go](https://new-todo-app.netlify.com) 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+
+Frontend Deployed on Netlify.
+
+Backend [Repository](https://github.com/jayduttshukla/TodoApp_backend)
 
 ## Development server
 
