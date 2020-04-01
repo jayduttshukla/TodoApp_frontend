@@ -7,7 +7,7 @@ import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent},
+  { path: '', component: localStorage.token ? TodosComponent : LoginComponent},
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'todo', component: TodosComponent, canActivate : [AuthGuard] }

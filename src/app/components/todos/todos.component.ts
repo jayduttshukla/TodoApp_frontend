@@ -59,8 +59,8 @@ export class TodosComponent implements OnInit {
   }
 
   onLogout(){
-    this.router.navigate(['/']);
     localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
 }

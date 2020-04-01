@@ -35,7 +35,7 @@
           <input type="checkbox" class="material-control-input" type="checkbox" name="isDone" [(ngModel)]="item.isDone"
             (change)="changeTodoStatus(item._id,$event)">
           <span class="material-control-indicator"></span>
-          <span class="material-control-description">{{item.todoValue}}</span>
+          <span class="material-control-description" [ngClass]="{ 'task-done': item.isDone}">{{item.todoValue}}</span>
         </label>
         <!-- <input type="checkbox" name="isDone" [(ngModel)]="item.isDone" (change)="changeTodoStatus(item._id,$event)">
 			<p class="card-text"> {{item.todoValue}}</p> -->
